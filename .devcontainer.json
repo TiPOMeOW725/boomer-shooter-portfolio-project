@@ -1,0 +1,41 @@
+{
+	"name": "Function.exe Dev Environment",
+	"image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
+
+	"features": {
+		"ghcr.io/devcontainers/features/aws-cli:1": {},
+		"ghcr.io/devcontainers/features/git:1": {},
+		"ghcr.io/devcontainers/features/github-cli:1": {},
+		"ghcr.io/devcontainers/features/terraform:1": {}
+	},
+
+	"forwardPorts": [5173],
+	"portsAttributes": {
+		"5173": {
+			"label": "Vite Dev Server",
+			"onAutoForward": "notify"
+		}
+	},
+
+	"postCreateCommand": "npm install",
+
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"dbaeumer.vscode-eslint", 
+				"esbenp.prettier-vscode", 
+				"editorconfig.editorconfig", 
+				"BabylonJS.babylonjs-inspector" 
+			],
+			"settings": {
+				"editor.formatOnSave": true,
+				"editor.defaultFormatter": "esbenp.prettier-vscode",
+				"editor.codeActionsOnSave": {
+					"source.fixAll.eslint": "explicit"
+				}
+			}
+		}
+	},
+
+	"remoteUser": "node"
+}
